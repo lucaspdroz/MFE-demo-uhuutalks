@@ -23,7 +23,8 @@ const ErrorContainer = styled.div`
 export default function ShowFallbackMessageError() {
   return (
     <ErrorContainer>
-      <h3>Ooopsie. Perdemos nosso mapa!</h3>
+      <h3>Ooopsie. Perdemos nosso componente!</h3>
+      <p>Você deve ter esquecido de rodar o projeto ou  servir os estáticos </p>
       <img src={img} alt="deu ruim" />
     </ErrorContainer>
   )
