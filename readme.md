@@ -1,4 +1,4 @@
-# Criando eu primeiro MFE
+# Criando seu primeiro MFE
 
 Para facilitar as coisas usaremos um template que já possui webpack configurado com Plugin de 
 importação e exportação de arquivos chamado `ModuleFederationPlugin`
