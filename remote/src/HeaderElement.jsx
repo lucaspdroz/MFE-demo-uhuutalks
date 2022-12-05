@@ -4,7 +4,7 @@ import './index.css'
 const HeaderElement = ({ title = "MFE" }) => {
     return (
         <div className='header'>
-            {title}
+            <p>{title}</p>
         </div>
     );
 }

@@ -9,8 +9,11 @@ body {
   margin-top: 20px;
 }
 
-.header{
-  width: 100vw;
+.header {
+  width: 100%;
   height: 58px;
+}
+
+.header p{
   background-color: red;
 }
