@@ -87,7 +87,7 @@ exemplo:
 Agora no projeto, busque pelo arquivo onde você deseja adicionar o MFE, e importe-o dessa forma:
 
 ```js
-import { MeuComponent } from 'remote/MyComponent'
+import MeuComponent  from 'remote/MyComponent'
 ```
 
 ### Utilizando o componente
