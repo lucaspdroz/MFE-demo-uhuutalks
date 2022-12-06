@@ -1,13 +1,11 @@
 <script setup>
 import Header from './components/Header'
-import VueCountdown from './components/Counter'
+import VueCountdown from './components/VueCountdown'
 </script>
 
 <template>
   <Header />
   <VueCountdown />
 </template>
-
-<script></script>
 
 <style lang="scss" scoped></style>

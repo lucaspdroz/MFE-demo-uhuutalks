@@ -6,6 +6,7 @@ import "./index.css";
 
 const App = () => (
   <div className="container">
+    Aqui é React
     <HeaderElement />
     <div>Name: remote</div>
     <div>Framework: react</div>

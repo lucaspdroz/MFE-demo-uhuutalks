@@ -1,9 +1,12 @@
-import React, { Suspense,lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import SafeComponent from "./Error/SafeComponent"
+
 // import HeaderElement from 'remote/HeaderElement'
 const HeaderElement = lazy(() => import('remote/HeaderElement'))
+const VueApp = lazy(() => import('vue_count/VueApp'))
+
 
 const App = () => {
   return (
@@ -14,9 +17,16 @@ const App = () => {
       <div>Language: JavaScript</div>
       <div>CSS: Empty CSS</div>
 
+
+      <Suspense fallback={<p>loading...</p>}>
+        <SafeComponent>
+          <VueApp />
+        </SafeComponent>
+      </Suspense>
+
       {/* Jeito correto, usando asyncronismo e tratativa de erros */}
       {/* É recomendado que no fallback seja adicionado um skelleton */}
-      <Suspense fallback={<p>loading...</p>}>  
+      <Suspense fallback={<p>loading...</p>}>
         <SafeComponent>
           <HeaderElement title="Componente Assync, com tratativa de erros, esse é o cara!" />
         </SafeComponent>

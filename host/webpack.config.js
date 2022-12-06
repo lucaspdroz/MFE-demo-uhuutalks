@@ -52,7 +52,9 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        remote: "remote@http://localhost:8080/remoteEntry.js",
+        remote: "remote@http://localhost:3001/remoteEntry.js",
+        // header:"vue_count@http://localhost:3002/remoteEntry.js",
+        vue_count: "vue_count@http://localhost:3002/remoteEntry.js"
       },
       exposes: {},
       shared: {

@@ -11,3 +11,10 @@ import VueCountdown from '@chenfengyuan/vue-countdown'
     {{ seconds }} seconds.
   </vue-countdown>
 </template>
+
+<script>
+
+export default {
+  components: VueCountdown
+}
+</script>
