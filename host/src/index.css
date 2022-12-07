@@ -9,3 +9,18 @@ body {
   margin: auto;
   margin-top: 20px;
 }
+
+.vue {
+  grid-area: vue;
+  background: rgb(132, 223, 83);
+}
+
+.solid {
+  grid-area: solid;
+  background: pink;
+}
+
+.react {
+  grid-area: react;
+  background: blue;
+}
