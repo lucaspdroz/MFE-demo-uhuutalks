@@ -1,28 +1,26 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import SafeComponent from "./Error/SafeComponent"
+import "./index.css";
 
-// import HeaderElement from 'remote/HeaderElement'
 const HeaderElement = lazy(() => import('remote/HeaderElement'))
-const VueApp = lazy(() => import('vue_count/VueApp'))
-
+import VueApp from 'vue_count/VueApp'
+import CounterWrapper from 'solidjs/CounterWrapper'
 
 const App = () => {
+  const vueRef = useRef(null)
+  const solidRef = useRef(null)
+
+  useEffect(()=>{
+    CounterWrapper(solidRef.current)
+    VueApp(vueRef.current)
+  },[])
+
   return (
     <div className="container">
-      {/* <HeaderElement title="Componente Sincrono, só funciona Local" /> */}
       <div>Name: host</div>
-      <div>Framework: react</div>
-      <div>Language: JavaScript</div>
-      <div>CSS: Empty CSS</div>
-
-
-      <Suspense fallback={<p>loading...</p>}>
-        <SafeComponent>
-          <VueApp />
-        </SafeComponent>
-      </Suspense>
+      <div ref={vueRef}></div>
+      <div ref={solidRef}></div>
 
       {/* Jeito correto, usando asyncronismo e tratativa de erros */}
       {/* É recomendado que no fallback seja adicionado um skelleton */}

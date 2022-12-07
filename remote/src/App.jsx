@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import HeaderElement from "./HeaderElement";
-
 import "./index.css";
 
 const App = () => (

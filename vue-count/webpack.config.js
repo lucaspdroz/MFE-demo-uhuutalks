@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:3004/",
   },
 
   resolve: {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   devServer: {
-    port: 3002,
+    port: 3004,
     historyApiFallback: true,
   },
 
@@ -52,7 +52,7 @@ module.exports = {
       exposes: {
         "./Header":"./src/components/Header.vue",
         './VueCountdown': "./src/components/VueCountdown.vue",
-        './VueApp': "./src/bootloader"
+        './VueApp': "./src/bootloaderexporter.js"
       },
       shared: require("./package.json").dependencies,
     }),

@@ -3,9 +3,12 @@ import './index.css'
 
 const HeaderElement = ({ title = "MFE" }) => {
     return (
-        <div className='header'>
-            <p>{title}</p>
-        </div>
+        <>
+            <h2>Aqui é React</h2>
+            <div className='header'>
+                <p>{title}</p>
+            </div>
+        </>
     );
 }
 
