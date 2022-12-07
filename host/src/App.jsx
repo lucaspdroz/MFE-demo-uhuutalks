@@ -19,7 +19,11 @@ const App = () => {
   return (
     <div className="container">
       <div>Name: host</div>
-      <div className="vue" ref={vueRef}></div>
+      <Suspense fallback={<p>loading...</p>}>
+        <SafeComponent>
+          <div className="vue" ref={vueRef}></div>
+        </SafeComponent>
+      </Suspense>
       <div className="solid" ref={solidRef}></div>
 
       {/* Jeito correto, usando asyncronismo e tratativa de erros */}

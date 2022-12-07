@@ -10,8 +10,15 @@ body {
   margin-top: 20px;
 }
 
+img {
+  width: 200px;
+}
+
 .vue {
   grid-area: vue;
+  display: grid;
+  height: 100%;
+  place-items: center;
   background: rgb(132, 223, 83);
 }
 
@@ -22,5 +29,6 @@ body {
 
 .react {
   grid-area: react;
+  color: #fff;
   background: blue;
 }

@@ -36,6 +36,14 @@ module.exports = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
     ],
   },
 
@@ -45,8 +53,8 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        './Counter':'./src/Counter.jsx',
-        './CounterWrapper':'./src/CounterWrapper.jsx'
+        "./Counter": "./src/Counter.jsx",
+        "./CounterWrapper": "./src/CounterWrapper.jsx",
       },
       shared: {
         ...deps,

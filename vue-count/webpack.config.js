@@ -37,6 +37,14 @@ module.exports = {
         ],
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
         test: /\.(css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
@@ -50,9 +58,9 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./Header":"./src/components/Header.vue",
-        './VueCountdown': "./src/components/VueCountdown.vue",
-        './VueApp': "./src/bootloaderexporter.js"
+        "./Header": "./src/components/Header.vue",
+        "./VueCountdown": "./src/components/VueCountdown.vue",
+        "./VueApp": "./src/bootloaderexporter.js",
       },
       shared: require("./package.json").dependencies,
     }),
