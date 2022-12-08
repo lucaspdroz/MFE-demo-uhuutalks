@@ -3,8 +3,32 @@ body {
 }
 
 .container {
+  max-width: 1040px;
+  margin: auto;
   font-size: 3rem;
   margin: auto;
-  max-width: 800px;
   margin-top: 20px;
+}
+
+img {
+  width: 200px;
+}
+
+.vue {
+  grid-area: vue;
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: rgb(132, 223, 83);
+}
+
+.solid {
+  grid-area: solid;
+  background: pink;
+}
+
+.react {
+  grid-area: react;
+  color: #fff;
+  background: blue;
 }
