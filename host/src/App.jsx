@@ -12,20 +12,13 @@ const App = () => {
   const solidRef = useRef(null)
 
   useEffect(() => {
-    CounterWrapper(solidRef.current)
     VueApp(vueRef.current)
+    CounterWrapper(solidRef.current)
   }, [])
 
   return (
     <div className="container">
       <div>Name: host</div>
-      <Suspense fallback={<p>loading...</p>}>
-        <SafeComponent>
-          <div className="vue" ref={vueRef}></div>
-        </SafeComponent>
-      </Suspense>
-      <div className="solid" ref={solidRef}></div>
-
       {/* Jeito correto, usando asyncronismo e tratativa de erros */}
       {/* É recomendado que no fallback seja adicionado um skelleton */}
       <Suspense fallback={<p>loading...</p>}>
@@ -33,6 +26,16 @@ const App = () => {
           <div className="react">
             <HeaderElement title="Componente Assync, com tratativa de erros, esse é o cara!" />
           </div>
+        </SafeComponent>
+      </Suspense>
+      <Suspense fallback={<p>loading...</p>}>
+        <SafeComponent>
+          <div className="vue" ref={vueRef}></div>
+        </SafeComponent>
+      </Suspense>
+      <Suspense fallback={<p>loading...</p>}>
+        <SafeComponent>
+          <div className="solid" ref={solidRef}></div>
         </SafeComponent>
       </Suspense>
     </div>

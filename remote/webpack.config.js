@@ -1,11 +1,14 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
+const path = require("path");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:3001/",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: process.env.NODE_ENV === 'production' ? 'https://react-three-indol-16.vercel.app/' : 'http://localhost:3001/',
   },
+
 
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],

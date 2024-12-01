@@ -1,10 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const Dotenv = require('dotenv-webpack');
+const path = require("path");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:3004/",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: process.env.NODE_ENV === 'production' ? process.env.PROJECT_URL : 'http://localhost:3004/',
   },
 
   resolve: {
@@ -53,6 +56,7 @@ module.exports = {
 
   plugins: [
     new VueLoaderPlugin(),
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: "vue_count",
       filename: "remoteEntry.js",
