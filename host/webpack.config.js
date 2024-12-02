@@ -3,13 +3,6 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const Dotenv = require('dotenv-webpack');
 const path = require("path");
 const deps = require("./package.json").dependencies;
-const isProduction = process.env.NODE_ENV === 'production';
-
-const remotes = {
-  react: process.env.REACT_PROJECT_URL,
-  vue_count: process.env.VUE_PROJECT_URL,
-  solidjs: process.env.SOLID_PROJECT_URL,
-}
 
 module.exports = {
   output: {
@@ -63,9 +56,10 @@ module.exports = {
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        remote: `remote@https://react-three-indol-16.vercel.app/remoteEntry.js`,
-        vue_count: `vue_count@https://vue-count.vercel.app/remoteEntry.js`,
-        solidjs: `solidjs@https://solidjs-two.vercel.app/remoteEntry.js`,
+        remote: 'remote@https://react-three-indol-16.vercel.app/remoteEntry.js',
+        vue_count: 'vue_count@https://vue-count.vercel.app/remoteEntry.js',
+        solidjs: 'solidjs@https://solidjs-two.vercel.app/remoteEntry.js',
+        header: "header@https://mfe-header-two.vercel.app/remoteEntry.js",
       },
       exposes: {},
       shared: {

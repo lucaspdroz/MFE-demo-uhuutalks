@@ -4,6 +4,8 @@ import SafeComponent from "./Error/SafeComponent"
 import "./index.css";
 
 const HeaderElement = lazy(() => import('remote/HeaderElement'))
+const Header = lazy(() => import('header/Header'))
+
 import VueApp from 'vue_count/VueApp'
 import CounterWrapper from 'solidjs/CounterWrapper'
 
@@ -28,6 +30,13 @@ const App = () => {
           </div>
         </SafeComponent>
       </Suspense>
+
+      <Suspense fallback={<p>loading...</p>}>
+        <SafeComponent>
+          <Header />
+        </SafeComponent>
+      </Suspense>
+
       <Suspense fallback={<p>loading...</p>}>
         <SafeComponent>
           <div className="vue" ref={vueRef}></div>

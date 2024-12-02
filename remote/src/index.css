@@ -5,15 +5,14 @@ body {
 .container {
   font-size: 3rem;
   margin: auto;
-  max-width: 800px;
   margin-top: 20px;
 }
 
-.header {
+.headerElement {
   width: 100%;
-  height: 58px;
+  background-color: red;
 }
 
-.header p{
-  background-color: red;
+.headerElement img {
+  height: 300px;
 }
