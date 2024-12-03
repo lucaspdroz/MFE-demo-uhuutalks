@@ -4,7 +4,7 @@ const Dotenv = require('dotenv-webpack');
 const path = require("path");
 const deps = require("./package.json").dependencies;
 
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3000/',
@@ -60,8 +60,11 @@ module.exports = {
         vue_count: 'vue_count@https://vue-count.vercel.app/remoteEntry.js',
         solidjs: 'solidjs@https://solidjs-two.vercel.app/remoteEntry.js',
         header: "header@https://mfe-header-two.vercel.app/remoteEntry.js",
+        host: "host@https://portal-five-livid.vercel.app/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        './store': './src/store',
+      },
       shared: {
         ...deps,
         react: {
@@ -78,4 +81,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});
