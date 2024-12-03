@@ -1,10 +1,13 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
+const Dotenv = require('dotenv-webpack');
+const path = require("path");
 const deps = require("./package.json").dependencies;
+
 module.exports = {
   output: {
-    publicPath: "http://localhost:3000/",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3000/',
   },
 
   resolve: {
@@ -48,13 +51,15 @@ module.exports = {
   },
 
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: "host",
       filename: "remoteEntry.js",
       remotes: {
-        remote: "remote@http://localhost:3001/remoteEntry.js",
-        vue_count: "vue_count@http://localhost:3004/remoteEntry.js",
-        solidjs: 'solidjs@http://localhost:3003/remoteEntry.js'
+        remote: 'remote@https://react-three-indol-16.vercel.app/remoteEntry.js',
+        vue_count: 'vue_count@https://vue-count.vercel.app/remoteEntry.js',
+        solidjs: 'solidjs@https://solidjs-two.vercel.app/remoteEntry.js',
+        header: "header@https://mfe-header-two.vercel.app/remoteEntry.js",
       },
       exposes: {},
       shared: {

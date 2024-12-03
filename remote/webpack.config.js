@@ -1,11 +1,14 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const deps = require("./package.json").dependencies;
+const path = require("path");
 
 module.exports = {
   output: {
-    publicPath: "http://localhost:3001/",
+    path: path.resolve(__dirname, "dist"),
+    publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3001/',
   },
+
 
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
