@@ -7,8 +7,9 @@ const path = require("path");
 module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: process.env.NODE_ENV === 'production' ? process.env.PROJECT_URL : 'http://localhost:3004/',
+    publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3004/',
   },
+
 
   resolve: {
     extensions: [".tsx", ".ts", ".vue", ".jsx", ".js", ".json"],

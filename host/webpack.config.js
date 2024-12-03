@@ -7,7 +7,7 @@ const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: process.env.NODE_ENV === 'production' ? process.env.PORTAL_URL : 'http://localhost:3000/',
+    publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3000/',
   },
 
   resolve: {

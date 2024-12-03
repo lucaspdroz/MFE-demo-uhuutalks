@@ -6,7 +6,7 @@ const path = require("path");
 module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: process.env.NODE_ENV === 'production' ? 'https://react-three-indol-16.vercel.app/' : 'http://localhost:3001/',
+    publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3001/',
   },
 
 
