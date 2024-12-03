@@ -4,7 +4,7 @@ const { VueLoaderPlugin } = require("vue-loader");
 const Dotenv = require('dotenv-webpack');
 const path = require("path");
 
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3004/',
@@ -73,4 +73,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});

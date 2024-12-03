@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const deps = require("./package.json").dependencies;
 const path = require("path");
 
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3001/',
@@ -54,7 +54,9 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "remote",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        host: "host@https://portal-five-livid.vercel.app/remoteEntry.js",
+      },
       exposes: {
         "./HeaderElement": "./src/HeaderElement.jsx",
       },
@@ -74,4 +76,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});

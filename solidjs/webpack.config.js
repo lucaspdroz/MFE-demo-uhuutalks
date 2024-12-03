@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const path = require("path");
 const deps = require("./package.json").dependencies;
 
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: argv.mode !== 'development' ? process.env.PROJECT_URL : 'http://localhost:3003/',
@@ -70,4 +70,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});
